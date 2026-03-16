@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
@@ -15,7 +15,7 @@ def login_view(request):
 
         if userr:
             login(request, userr)
-            return HttpResponse('Logged In')
+            return redirect('home')
         else:
             return HttpResponse('Incorrect credentials')
     else:
