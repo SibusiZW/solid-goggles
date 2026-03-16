@@ -18,3 +18,6 @@ class Booking(models.Model):
 
     class Meta:
         unique_together = ('consultation', 'student')
+
+    def __str__(self):
+        return f"{self.student.username} - {self.consultation.class_name}"
