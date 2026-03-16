@@ -10,4 +10,11 @@ class Consultation(models.Model):
         return f"{self.teacher_name} - {self.class_name}"
 
 class Booking(models.Model):
-    pass
+    consultation = models.ForeignKey(Consultation, on_delete=models.CASCADE)
+    student = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        unique_together = ('consultation', 'student')
