@@ -22,7 +22,13 @@
             <img class="mb-4 w-[120px]" src="{% static 'img/logo.jpg' %}" alt="Logo">
         </div>
 
-        <form method="post"></form>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.student_id }}
+            {{ form.password }}
+
+            <button type="submit" class="rounded-md bg-orange-500 text-white p-2 w-full hover:bg-orange-800">Log In</button>
+        </form>
     </div>
 </body>
 </html>
