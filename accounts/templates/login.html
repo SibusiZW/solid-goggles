@@ -1,11 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Log In | SolidGoggles</title>
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="min-h-screen bg-gray-300 flex items-center justify-center text-center">
+    <div class="bg-white rounded-[10px] p-4 w-[450px]">
+        <div class="flex justify-center text-center items-center">
+            <img class="mb-4 w-[120px]" src="{% static 'img/logo.jpg' %}" alt="Logo">
+        </div>
+
+        <form method="post"></form>
+    </div>
 </body>
 </html>
