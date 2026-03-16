@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .models import Consultation, Booking
@@ -19,3 +19,17 @@ def bookings_view(request):
 def signout(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='/auth/login/')
+def book(request, pk):
+    c = get_object_or_404(Consultation, pk=pk)
+    obj = Booking.objects.create(consultation=c, student=request.user)
+    obj.save()
+
+    return redirect('home')
+
+@login_required(login_url='/auth/login/')
+def delete_booking(request, pk):
+    obj = get_object_or_404(Booking, pk=pk)
+    obj.delete()
+    return redirect('home')
